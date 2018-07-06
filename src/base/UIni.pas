@@ -177,6 +177,8 @@ type
       LyricsFont:     integer;
       LyricsEffect:   integer;
       NoteLines:      integer;
+      NotesVisible:   integer;
+      ScoresVisible:  integer;
 
       // Themes
       Theme:          integer;
@@ -397,6 +399,8 @@ const
                                               0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1.00);
 
   INoteLines:     array[0..1] of UTF8String = ('Off', 'On');
+  INotesVisible:  array[0..1] of UTF8String = ('Off', 'On');
+  IScoresVisible: array[0..1] of UTF8String = ('Off', 'On');
 
   //for lyric colors
   ILine:             array[0..2] of UTF8String = ('Sing', 'Actual', 'Next');
@@ -506,6 +510,8 @@ var
   ILyricsFontTranslated:       array[0..2] of UTF8String = ('Plain', 'OLine1', 'OLine2');
   ILyricsEffectTranslated:     array[0..4] of UTF8String = ('Simple', 'Zoom', 'Slide', 'Ball', 'Shift');
   INoteLinesTranslated:        array[0..1] of UTF8String = ('Off', 'On');
+  INotesVisibleTranslated:     array[0..1] of UTF8String = ('Off', 'On');
+  IScoresVisibleTranslated:    array[0..1] of UTF8String = ('Off', 'On');
   IColorTranslated:            array[0..8] of UTF8String = ('Blue', 'Green', 'Pink', 'Red', 'Violet', 'Orange', 'Yellow', 'Brown', 'Black');
   IPlayerColorTranslated:      array[0..15] of UTF8String = ('Blue', 'Red', 'Green', 'Yellow', 'Orange', 'Pink',  'Violet', 'Brown', 'Gray', 'Dark Blue', 'Sky', 'Cyan', 'Flame', 'Orchid', 'Harlequin', 'Lime');
 
@@ -699,6 +705,12 @@ begin
 
   INoteLinesTranslated[0]             := ULanguage.Language.Translate('OPTION_VALUE_OFF');
   INoteLinesTranslated[1]             := ULanguage.Language.Translate('OPTION_VALUE_ON');
+
+  INotesVisibleTranslated[0]          := ULanguage.Language.Translate('OPTION_VALUE_OFF');
+  INotesVisibleTranslated[1]          := ULanguage.Language.Translate('OPTION_VALUE_ON');
+
+  IScoresVisibleTranslated[0]         := ULanguage.Language.Translate('OPTION_VALUE_OFF');
+  IScoresVisibleTranslated[1]         := ULanguage.Language.Translate('OPTION_VALUE_ON');
 
   for I := 0 to 255 do
   begin
@@ -1509,6 +1521,12 @@ begin
   // NoteLines
   NoteLines := ReadArrayIndex(INoteLines, IniFile, 'Lyrics', 'NoteLines', 1);
 
+  // NotesVisible
+  NotesVisible := ReadArrayIndex(INotesVisible, IniFile, 'Lyrics', 'NotesVisible', 1);
+                                                                                      
+  // ScoresVisible
+  ScoresVisible := ReadArrayIndex(IScoresVisible, IniFile, 'Lyrics', 'ScoresVisible', 1);
+
   // DefaultEncoding
   DefaultEncoding := ParseEncoding(IniFile.ReadString('Lyrics', 'Encoding', ''), encAuto);
 
@@ -1810,6 +1828,12 @@ begin
 
     // NoteLines
     IniFile.WriteString('Lyrics', 'NoteLines', INoteLines[NoteLines]);
+
+    // NotesVisible
+    IniFile.WriteString('Lyrics', 'NotesVisible', INotesVisible[NotesVisible]);
+
+    // ScoresVisible
+    IniFile.WriteString('Lyrics', 'ScoresVisible', IScoresVisible[ScoresVisible]);
 
     //Encoding default
     IniFile.WriteString('Lyrics', 'Encoding', EncodingName(DefaultEncoding));

@@ -887,11 +887,13 @@ type
   end;
 
   TThemeOptionsLyrics = class(TThemeBasic)
-    SelectLyricsFont:   TThemeSelectSlide;
-    SelectLyricsEffect: TThemeSelectSlide;
-//    SelectSolmization:  TThemeSelectSlide;
-    SelectNoteLines:    TThemeSelectSlide;
-    ButtonExit:         TThemeButton;
+    SelectLyricsFont:       TThemeSelectSlide;
+    SelectLyricsEffect:     TThemeSelectSlide;
+//    SelectSolmization:      TThemeSelectSlide;
+    SelectNoteLines:        TThemeSelectSlide;
+    SelectNotesVisible:     TThemeSelectSlide;
+    SelectScoresVisible:    TThemeSelectSlide;
+    ButtonExit:             TThemeButton;
   end;
 
   TThemeOptionsThemes = class(TThemeBasic)
@@ -2356,11 +2358,13 @@ begin
       // Options Lyrics
       ThemeLoadBasic(OptionsLyrics, 'OptionsLyrics');
 
-      ThemeLoadSelectSlide(OptionsLyrics.SelectLyricsFont,   'OptionsLyricsSelectLyricsFont');
-      ThemeLoadSelectSlide(OptionsLyrics.SelectLyricsEffect, 'OptionsLyricsSelectLyricsEffect');
-      //ThemeLoadSelectSlide(OptionsLyrics.SelectSolmization,     'OptionsLyricsSelectSolmization');
-      ThemeLoadSelectSlide(OptionsLyrics.SelectNoteLines,    'OptionsLyricsSelectNoteLines');
-      ThemeLoadButton(OptionsLyrics.ButtonExit,              'OptionsLyricsButtonExit');
+      ThemeLoadSelectSlide(OptionsLyrics.SelectLyricsFont,       'OptionsLyricsSelectLyricsFont');
+      ThemeLoadSelectSlide(OptionsLyrics.SelectLyricsEffect,     'OptionsLyricsSelectLyricsEffect');
+      //ThemeLoadSelectSlide(OptionsLyrics.SelectSolmization,         'OptionsLyricsSelectSolmization');
+      ThemeLoadSelectSlide(OptionsLyrics.SelectNoteLines,        'OptionsLyricsSelectNoteLines');
+      ThemeLoadSelectSlide(OptionsLyrics.SelectNotesVisible,     'OptionsLyricsSelectNotesVisible');
+      ThemeLoadSelectSlide(OptionsLyrics.SelectScoresVisible,    'OptionsLyricsSelectScoresVisible');
+      ThemeLoadButton(OptionsLyrics.ButtonExit,                  'OptionsLyricsButtonExit');
 
       // Options Themes
       ThemeLoadBasic(OptionsThemes, 'OptionsThemes');

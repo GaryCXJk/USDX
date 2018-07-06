@@ -140,6 +140,14 @@ begin
   Theme.OptionsLyrics.SelectNoteLines.oneItemOnly := true;
   AddSelectSlide(Theme.OptionsLyrics.SelectNoteLines, Ini.NoteLines, INoteLinesTranslated);
 
+  Theme.OptionsLyrics.SelectNotesVisible.showArrows := true;
+  Theme.OptionsLyrics.SelectNotesVisible.oneItemOnly := true;
+  AddSelectSlide(Theme.OptionsLyrics.SelectNotesVisible, Ini.NotesVisible, INotesVisibleTranslated);
+
+  Theme.OptionsLyrics.SelectScoresVisible.showArrows := true;
+  Theme.OptionsLyrics.SelectScoresVisible.oneItemOnly := true;
+  AddSelectSlide(Theme.OptionsLyrics.SelectScoresVisible, Ini.ScoresVisible, IScoresVisibleTranslated);
+
   AddButton(Theme.OptionsLyrics.ButtonExit);
   if (Length(Button[0].Text)=0) then
     AddButtonText(20, 5, Theme.Options.Description[OPTIONS_DESC_INDEX_BACK]);

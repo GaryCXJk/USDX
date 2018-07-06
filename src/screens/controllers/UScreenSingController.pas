@@ -1244,8 +1244,8 @@ begin
   Settings.Finish := False;
   Settings.OscilloscopeVisible := Boolean(Ini.Oscilloscope);
   Settings.LyricsVisible := True;
-  Settings.NotesVisible := high(Integer);
-  Settings.ScoresVisible := True;
+  Settings.NotesVisible := IfThen(Boolean(Ini.NotesVisible), high(Integer), 0);
+  Settings.ScoresVisible := Boolean(Ini.ScoresVisible);
   Settings.AvatarsVisible := True;
   Settings.TimeBarVisible := True;
   Settings.InputVisible := True;
